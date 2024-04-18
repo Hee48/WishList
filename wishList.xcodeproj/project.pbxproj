@@ -16,6 +16,7 @@
 		3982A1C82BD0A5A800CDA727 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3982A1C62BD0A5A800CDA727 /* LaunchScreen.storyboard */; };
 		3982A1D02BD0A86D00CDA727 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3982A1CF2BD0A86D00CDA727 /* Model.swift */; };
 		3982A1D42BD0B51A00CDA727 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3982A1D32BD0B51A00CDA727 /* WishListViewController.swift */; };
+		3982A1D62BD0BFAA00CDA727 /* ContainerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3982A1D52BD0BFAA00CDA727 /* ContainerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		3982A1C92BD0A5A800CDA727 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3982A1CF2BD0A86D00CDA727 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		3982A1D32BD0B51A00CDA727 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
+		3982A1D52BD0BFAA00CDA727 /* ContainerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		3982A1B72BD0A5A700CDA727 /* wishList */ = {
 			isa = PBXGroup;
 			children = (
+				3982A1D52BD0BFAA00CDA727 /* ContainerManager.swift */,
 				3982A1D32BD0B51A00CDA727 /* WishListViewController.swift */,
 				3982A1CF2BD0A86D00CDA727 /* Model.swift */,
 				3982A1B82BD0A5A700CDA727 /* AppDelegate.swift */,
@@ -150,6 +153,7 @@
 				3982A1D02BD0A86D00CDA727 /* Model.swift in Sources */,
 				3982A1D42BD0B51A00CDA727 /* WishListViewController.swift in Sources */,
 				3982A1C32BD0A5A700CDA727 /* wishList.xcdatamodeld in Sources */,
+				3982A1D62BD0BFAA00CDA727 /* ContainerManager.swift in Sources */,
 				3982A1BD2BD0A5A700CDA727 /* ViewController.swift in Sources */,
 				3982A1B92BD0A5A700CDA727 /* AppDelegate.swift in Sources */,
 				3982A1BB2BD0A5A700CDA727 /* SceneDelegate.swift in Sources */,

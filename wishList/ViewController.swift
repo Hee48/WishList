@@ -21,8 +21,9 @@ class ViewController: UIViewController {
     
     //위시리스트담기 버튼함수
     @IBAction func wishListputButton(_ sender: UIButton) {
-        saveWishList() //위시리스트 코어데이터에 저장하기
-
+        if let loadData = loadData {
+            saveWishList(with: loadData) //위시리스트 코어데이터에 저장하기
+        }
     }
     //다른상품보기 버튼함수
     @IBAction func anotheritemButton(_ sender: UIButton) {
@@ -53,12 +54,7 @@ extension ViewController {
                         print("Decoding")
                         self.loadData = loadData //loadData를 loadData 프로퍼티에 할당
                         DispatchQueue.main.async {
-                            self.titleLabel.text = loadData.title
-                            self.descriptionLabel.text = loadData.description
-                            self.priceLabel.text = "Price : \(loadData.price)$"
-                            self.brandLabel.text = "Brand : \(loadData.brand)"
-                            self.loadImage(from: loadData.thumbnail)
-                            self.categoryLabel.text = "category : \(loadData.category)"
+                            self.updateUI(with: loadData)
                         }
                     } catch {
                         print("DecodingError : \(error)")
@@ -68,6 +64,16 @@ extension ViewController {
             task.resume()
         }
     }
+    //DisPatchQueue에 있던 UI 뜯어낸거
+    func updateUI(with loadData: WishListModel) {
+        self.titleLabel.text = loadData.title
+        self.descriptionLabel.text = loadData.description
+        self.priceLabel.text = "Price : \(loadData.price)$"
+        self.brandLabel.text = "Brand : \(loadData.brand)"
+        self.loadImage(from: loadData.thumbnail)
+        self.categoryLabel.text = "category : \(loadData.category)"
+    }
+    
     // 이미지를 비동기적으로 가져오는 함수
     func loadImage(from url: URL) {
         let session = URLSession.shared
@@ -81,30 +87,19 @@ extension ViewController {
     }
     
     //위시리스트 저장함수
-    func saveWishList() {
-        guard let loadData = loadData else {
-            print("NO data to save")
-            return
-        }
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "WishList", in: context)
-        if let entity = entity {
-            let wishList = NSManagedObject(entity: entity, insertInto: context)
-            wishList.setValue(loadData.id, forKey: "id")
-            wishList.setValue(loadData.title, forKey: "title")
-            wishList.setValue(loadData.price, forKey: "price")
-            do {
-                try context.save()
-                print("save Data")
-            } catch {
-                print("Failed to save")
-            }
-        }  else {
-            print("saveWishListError")
+    func saveWishList(with loadData: WishListModel) {
+        let context = ContainerManager.shared.persistentContainer.viewContext
+        let wish = WishList.init(context: context)
+        
+        wish.id = Int64(loadData.id)
+        wish.title = loadData.title
+        wish.price = loadData.price
+        
+        do {
+            try context.save()
+            print("Save Data")
+        } catch {
+            print("SaveWishList Error")
         }
     }
-
 }
-
-

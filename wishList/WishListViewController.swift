@@ -13,8 +13,7 @@ class WishListViewController: UITableViewController {
     
     //위시리스트 함수
     func wishListfetch() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
+        let context = ContainerManager.shared.persistentContainer.viewContext
         do {
             //CoraData에서 데이터 가져오는부분
             wishList = try context.fetch(WishList.fetchRequest()) as! [WishList]
