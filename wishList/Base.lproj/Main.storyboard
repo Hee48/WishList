@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -98,6 +99,9 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="gai-DT-6kG">
+                                <rect key="frame" x="178" y="407.66666666666669" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -112,17 +116,23 @@
                             <constraint firstItem="cO4-Oz-ges" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bl9-zW-F0U"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9sB-2P-qt6" secondAttribute="trailing" constant="16" id="fJ3-HP-lKt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2eu-Qi-ih5" secondAttribute="trailing" constant="16" id="p5B-rk-cjB"/>
+                            <constraint firstItem="gai-DT-6kG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="r7m-uG-ElC"/>
                             <constraint firstItem="9sB-2P-qt6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="rkY-QC-pb5"/>
+                            <constraint firstItem="gai-DT-6kG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uXm-b3-ltd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cO4-Oz-ges" secondAttribute="trailing" constant="16" id="vUy-UK-9A9"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="anotheritemButton" destination="YmE-9w-0Bm" id="bQj-vb-g8A"/>
                         <outlet property="brandLabel" destination="ad1-I2-QNB" id="u2s-5y-fKD"/>
                         <outlet property="categoryLabel" destination="eyW-aq-06Z" id="nPe-bc-wGI"/>
                         <outlet property="descriptionLabel" destination="OMF-a7-ZdI" id="ksf-Ef-1s5"/>
                         <outlet property="imageView" destination="9sB-2P-qt6" id="RXt-Fa-dFR"/>
+                        <outlet property="loader" destination="gai-DT-6kG" id="cno-ay-RUC"/>
                         <outlet property="priceLabel" destination="wB1-g6-0n4" id="UPU-0e-CsZ"/>
                         <outlet property="titleLabel" destination="gpM-yp-sAV" id="g8C-o1-izB"/>
+                        <outlet property="wishListButton" destination="8PF-od-kpI" id="GK7-Py-c0v"/>
+                        <outlet property="wishListputButton" destination="nqF-GK-WVw" id="Y5A-4R-6w2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -155,7 +165,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ngw-BP-3mS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="793" y="-35"/>
+            <point key="canvasLocation" x="791.60305343511448" y="-35.211267605633807"/>
         </scene>
     </scenes>
     <resources>

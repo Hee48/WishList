@@ -7,18 +7,24 @@ class ViewController: UIViewController {
     
     var loadData: WishListModel?
     
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var brandLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var wishListButton: UIButton!
+    @IBOutlet weak var anotheritemButton: UIButton!
+    @IBOutlet weak var wishListputButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        alpha()
         jsonloadData()
     }
-    
+
+
     //위시리스트담기 버튼함수
     @IBAction func wishListputButton(_ sender: UIButton) {
         if let loadData = loadData {
@@ -33,6 +39,20 @@ class ViewController: UIViewController {
     @IBAction func wishListButton(_ sender: UIButton) {
         guard let wishListvc = storyboard?.instantiateViewController(withIdentifier: "WishListVC") as? WishListViewController else { return }
         present(wishListvc, animated: true)
+    }
+    
+    //화면 로더뜨기전 정보를 흐리게하는부분
+    func alpha() {
+        loader.alpha = 1.0
+        imageView.alpha = 0.0
+        titleLabel.alpha = 0.0
+        descriptionLabel.alpha = 0.0
+        priceLabel.alpha = 0.0
+        brandLabel.alpha = 0.0
+        categoryLabel.alpha = 0.0
+        wishListButton.alpha = 0.0
+        anotheritemButton.alpha = 0.0
+        wishListputButton.alpha = 0.0
     }
 }
 
@@ -72,6 +92,20 @@ extension ViewController {
         self.brandLabel.text = "Brand : \(loadData.brand)"
         self.loadImage(from: loadData.thumbnail)
         self.categoryLabel.text = "category : \(loadData.category)"
+        
+        //정보가 다뜨면 알파값변경
+        UIView.animate(withDuration: 0.3) {
+            self.imageView.alpha = 1.0
+            self.loader.alpha = 0.0
+            self.titleLabel.alpha = 1.0
+            self.descriptionLabel.alpha = 1.0
+            self.priceLabel.alpha = 1.0
+            self.brandLabel.alpha = 1.0
+            self.categoryLabel.alpha = 1.0
+            self.wishListButton.alpha = 1.0
+            self.anotheritemButton.alpha = 1.0
+            self.wishListputButton.alpha = 1.0
+        }
     }
     
     // 이미지를 비동기적으로 가져오는 함수
